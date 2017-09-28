@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>plastrr</title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Libre+Barcode+39+Text|Megrim" rel="stylesheet">
+
+    <style media="screen">
+
+    .poster-board {
+      margin: auto;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .poster {
+      width: 100%;
+      margin-bottom: 40px
+    }
+
+    .poster-image {
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: 480px) {
+        .poster-board {
+            background-color: lightgreen;
+            width: 100%;
+        }
+    }
+
+    .email-title {
+      /*font-family: 'Libre Barcode 39 Text', cursive;
+      font-family: 'Bungee Inline', cursive;*/
+      font-family: 'Megrim', cursive;
+      text-align: right;
+    }
+
+    </style>
+  </head>
+  <body>
+
+{% load static %}
+    <div class="poster-board">
+          <h3 class="email-title">
+            <a href="mailto:helloplastrr@gmail.com?&subject=New%20poster&body=Please%20include%20date,%20time,%20location%20and%20poster%20image." target="_top">send posters to helloplastrr@gmail.com</a>
+          </h3>
+      <ul style="list-style-type:none;padding-left: 0px";>
+      {% for poster in object_list %}
+      <div class="poster">
+        <li>
+          <img class="poster-image" src={{poster.poster.url}} alt="My image"/><span class="poster_text" {{poster.name}}</span>
+            <a href={{poster.link}}>{{poster.name}}</a>
+        </li>
+      </div>
+          {% empty %}
+        <li>No posters yet.</li>
+          {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

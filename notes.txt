@@ -1,0 +1,8 @@
+get into virtualenv
+virtualenvs\plastr\scripts\activate.bat
+
+get into python shell
+python plastr\mysite\manage.py shell
+
+last place in tutorial
+Creating admin user.
